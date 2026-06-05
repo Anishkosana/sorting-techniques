@@ -22,3 +22,22 @@ def partitioning(l,h,nums):
             nums[i],nums[j]=nums[j],nums[i]
     nums[l],nums[j]=nums[j],nums[l]
     return j
+
+# hoarse partitioning algorithm 
+def hoarse_partitioning(l,h,nums):
+    if not nums:
+        return None
+    mid=(l+h)//2
+    pivot=nums[mid]
+    i=l
+    j=h
+    while True:
+        while nums[i]<pivot:
+            i+=1
+        while nums[j]>pivot:
+            j-=1
+        if i>=j:
+            return j
+        nums[i],nums[j]=nums[j],nums[i]
+        i+=1
+        j-=1
