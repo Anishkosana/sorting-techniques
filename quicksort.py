@@ -41,3 +41,13 @@ def hoarse_partitioning(l,h,nums):
         nums[i],nums[j]=nums[j],nums[i]
         i+=1
         j-=1
+
+# itervative version of quick sort
+def iterative_quick_sort(nums):
+    stack=[(0,len(nums)-1)]
+    while stack:
+        low,high=stack.pop()
+        if low<high:
+            j=hoarse_partitioning(low,high,nums)
+            stack.append((low,j))
+            stack.append((j+1,high))
